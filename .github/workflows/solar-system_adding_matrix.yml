@@ -18,7 +18,7 @@ jobs:
 
     strategy:
       matrix:
-        node: [16, 18, 20]  # 👈 You can test across Node.js versions
+        node: [16, 18, 20]  # Test against multiple Node.js versions
 
     services:
       mongodb:
@@ -42,6 +42,11 @@ jobs:
 
       - name: Install Dependencies (including dev)
         run: npm install --include=dev
+
+      - name: Wait for MongoDB to be healthy
+        run: |
+          echo "⏳ Waiting for MongoDB..."
+          sleep 10
 
       - name: Seed MongoDB
         run: node seed.js
