@@ -1,0 +1,90 @@
+name: Solar System Workflow - Unit Test & Coverage
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - 'feature/*'
+  pull_request:
+
+env:
+  MONGO_URI: 'mongodb://127.0.0.1:27017/solar-system'
+  NODE_ENV: test
+
+jobs:
+  unit-testing:
+    name: Node.js ${{ matrix.node }} Unit Tests
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node: [16, 18, 20]
+
+    services:
+      mongodb:
+        image: mongo:6.0
+        ports:
+          - 27017:27017
+        options: >-
+          --health-cmd "mongosh --eval 'db.adminCommand(\"ping\")'"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Wait for MongoDB
+        run: sleep 10
+
+      - name: Seed MongoDB
+        run: node seed.js
+
+      - name: Run Unit Tests
+        run: npx mocha app-test.js --timeout 10000 --reporter spec --exit
+
+      - name: Output Test Results on Failure
+        if: failure()
+        run: cat test-results.xml || echo "No test results file found."
+
+      - name: Archive Test Results
+        uses: actions/upload-artifact@main
+        with:
+          name: Mocha-Test-Result-Node${{ matrix.node }}
+          path: test-results.xml
+
+  code-coverage:
+    name: Node.js Code Coverage
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup NodeJS Version - 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Code Coverage
+        run: npm run coverage
+
+      - name: Archive Code Coverage Result
+        uses: actions/upload-artifact@main
+        with:
+          name: Code-Coverage-Result
+          path: coverage
+          retention-days: 5
