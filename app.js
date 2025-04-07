@@ -15,18 +15,20 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname)));
 
-// 🔗 MongoDB connection setup using env vars
+// 🔗 MongoDB connection setup using env vars or default local MongoDB
+const mongoUri = process.env.MONGO_URI || 'mongodb://localhost:27017/solar-system';
 const mongoOptions = {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
 };
 
+// Optional credentials
 if (process.env.MONGO_USERNAME && process.env.MONGO_PASSWORD) {
   mongoOptions.user = process.env.MONGO_USERNAME;
   mongoOptions.pass = process.env.MONGO_PASSWORD;
 }
 
-mongoose.connect(process.env.MONGO_URI, mongoOptions, (err) => {
+mongoose.connect(mongoUri, mongoOptions, (err) => {
   if (err) {
     console.error("❌ MongoDB connection error:", err);
   } else {
