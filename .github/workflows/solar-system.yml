@@ -27,7 +27,7 @@ jobs:
         run: npm test
 
       - name: Archive Test Result
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@93b7d3f7b55e7cbfbf33eae02b4fdd6922f6b44b
         with:
           name: Mocha-Test-Result
           path: test-results.xml
