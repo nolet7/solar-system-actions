@@ -26,8 +26,8 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install Dependencies
-        run: npm install
+      - name: Install Dependencies (including dev)
+        run: npm install --include=dev
 
       - name: Run Unit Tests
         run: npm test
