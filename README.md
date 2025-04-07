@@ -1,7 +1,7 @@
 echo "Triggered GitHub Actions on $(date)" >> README.md
 
 
-# Solar System NodeJS Application
+### Solar System NodeJS Application
 
 A simple HTML+MongoDB+NodeJS project to display Solar System and it's planets.
 

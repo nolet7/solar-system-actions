@@ -1,4 +1,4 @@
-// Load environment variables from .env file
+// Load environment variables (.env is optional in production CI/CD)
 require('dotenv').config();
 
 const path = require('path');
@@ -10,12 +10,12 @@ const cors = require('cors');
 
 const app = express();
 
-// Middleware
+// 🔧 Middleware
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname)));
 
-// MongoDB connection using environment variables
+// 🔗 MongoDB connection setup using env vars
 const mongoOptions = {
   useNewUrlParser: true,
   useUnifiedTopology: true
@@ -34,10 +34,8 @@ mongoose.connect(process.env.MONGO_URI, mongoOptions, (err) => {
   }
 });
 
-// Schema and Model
-const Schema = mongoose.Schema;
-
-const dataSchema = new Schema({
+// 📦 Define Mongoose Schema & Model
+const dataSchema = new mongoose.Schema({
   name: String,
   id: Number,
   description: String,
@@ -48,9 +46,9 @@ const dataSchema = new Schema({
 
 const Planet = mongoose.model('planets', dataSchema);
 
-// Routes
+// 🚀 Routes
 
-// POST /planet - Retrieve planet data by ID
+// POST /planet - Get planet by ID
 app.post('/planet', async (req, res) => {
   const planetId = req.body.id;
   if (planetId === undefined) {
@@ -68,12 +66,12 @@ app.post('/planet', async (req, res) => {
   }
 });
 
-// GET / - Serve homepage
+// GET / - Serve the homepage
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// GET /os - Return server hostname and environment
+// GET /os - Return OS and environment info
 app.get('/os', (req, res) => {
   res.status(200).json({
     os: OS.hostname(),
@@ -81,7 +79,7 @@ app.get('/os', (req, res) => {
   });
 });
 
-// Health checks
+// Health check endpoints
 app.get('/live', (req, res) => res.status(200).json({ status: "live" }));
 app.get('/ready', (req, res) => res.status(200).json({ status: "ready" }));
 

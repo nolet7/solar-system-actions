@@ -1,0 +1,43 @@
+name: Adding Matrix
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - 'feature/*'
+
+env:
+  MONGO_URI: 'mongodb+srv://${{ vars.MONGO_USERNAME }}:${{ secrets.MONGO_PASSWORD }}@supercluster.d83jj.mongodb.net/superData?retryWrites=true&w=majority'
+  NODE_ENV: production
+
+jobs:
+  unit-testing:
+    name: Unit Testing on Node ${{ matrix.node-version }}
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16, 18, 20]
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install Dependencies (including dev)
+        run: npm install --include=dev
+
+      - name: Run Unit Tests
+        run: npm test
+
+      - name: Archive Test Results
+        uses: actions/upload-artifact@main
+        with:
+          name: Mocha-Test-Result-Node-${{ matrix.node-version }}
+          path: test-results.xml
+
