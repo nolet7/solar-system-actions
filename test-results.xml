@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="Mocha Tests" time="0.131" tests="11" failures="8">
-  <testsuite name="Root Suite" timestamp="2025-04-07T06:09:22" tests="0" time="0.000" failures="0">
+<testsuites name="Mocha Tests" time="0.121" tests="11" failures="8">
+  <testsuite name="Root Suite" timestamp="2025-04-07T18:07:05" tests="0" time="0.000" failures="0">
   </testsuite>
-  <testsuite name="Planets API Suite" timestamp="2025-04-07T06:09:22" tests="0" file="C:\Users\Lateef\OneDrive\Documents\GitHub Actions Certification\solar-system\app-test.js" time="0.000" failures="0">
+  <testsuite name="Planets API Suite" timestamp="2025-04-07T18:07:05" tests="0" file="C:\Users\Lateef\OneDrive\Documents\GitHub Actions Certification\solar-system\app-test.js" time="0.000" failures="0">
   </testsuite>
-  <testsuite name="Fetching Planet Details" timestamp="2025-04-07T06:09:22" tests="8" file="C:\Users\Lateef\OneDrive\Documents\GitHub Actions Certification\solar-system\app-test.js" time="0.108" failures="8">
-    <testcase name="Planets API Suite Fetching Planet Details it should fetch a planet named Mercury" time="0.047" classname="it should fetch a planet named Mercury">
+  <testsuite name="Fetching Planet Details" timestamp="2025-04-07T18:07:05" tests="8" file="C:\Users\Lateef\OneDrive\Documents\GitHub Actions Certification\solar-system\app-test.js" time="0.085" failures="8">
+    <testcase name="Planets API Suite Fetching Planet Details it should fetch a planet named Mercury" time="0.039" classname="it should fetch a planet named Mercury">
       <failure message="expected &apos;Venus&apos; to deeply equal &apos;Mercury&apos;" type="AssertionError"><![CDATA[AssertionError: expected 'Venus' to deeply equal 'Mercury'
     at C:\Users\Lateef\OneDrive\Documents\GitHub Actions Certification\solar-system\app-test.js:24:59
     at Request.callback (node_modules\superagent\lib\node\index.js:857:12)
@@ -21,7 +21,7 @@
       +Mercury
       ]]></failure>
     </testcase>
-    <testcase name="Planets API Suite Fetching Planet Details it should fetch a planet named Venus" time="0.010" classname="it should fetch a planet named Venus">
+    <testcase name="Planets API Suite Fetching Planet Details it should fetch a planet named Venus" time="0.006" classname="it should fetch a planet named Venus">
       <failure message="expected &apos;Earth&apos; to deeply equal &apos;Venus&apos;" type="AssertionError"><![CDATA[AssertionError: expected 'Earth' to deeply equal 'Venus'
     at C:\Users\Lateef\OneDrive\Documents\GitHub Actions Certification\solar-system\app-test.js:39:59
     at Request.callback (node_modules\superagent\lib\node\index.js:857:12)
@@ -53,7 +53,7 @@
       +Earth
       ]]></failure>
     </testcase>
-    <testcase name="Planets API Suite Fetching Planet Details it should fetch a planet named Mars" time="0.007" classname="it should fetch a planet named Mars">
+    <testcase name="Planets API Suite Fetching Planet Details it should fetch a planet named Mars" time="0.005" classname="it should fetch a planet named Mars">
       <failure message="expected &apos;Jupiter&apos; to deeply equal &apos;Mars&apos;" type="AssertionError"><![CDATA[AssertionError: expected 'Jupiter' to deeply equal 'Mars'
     at C:\Users\Lateef\OneDrive\Documents\GitHub Actions Certification\solar-system\app-test.js:68:59
     at Request.callback (node_modules\superagent\lib\node\index.js:857:12)
@@ -69,7 +69,7 @@
       +Mars
       ]]></failure>
     </testcase>
-    <testcase name="Planets API Suite Fetching Planet Details it should fetch a planet named Jupiter" time="0.005" classname="it should fetch a planet named Jupiter">
+    <testcase name="Planets API Suite Fetching Planet Details it should fetch a planet named Jupiter" time="0.006" classname="it should fetch a planet named Jupiter">
       <failure message="expected &apos;Saturn&apos; to deeply equal &apos;Jupiter&apos;" type="AssertionError"><![CDATA[AssertionError: expected 'Saturn' to deeply equal 'Jupiter'
     at C:\Users\Lateef\OneDrive\Documents\GitHub Actions Certification\solar-system\app-test.js:83:59
     at Request.callback (node_modules\superagent\lib\node\index.js:857:12)
@@ -85,7 +85,7 @@
       +Jupiter
       ]]></failure>
     </testcase>
-    <testcase name="Planets API Suite Fetching Planet Details it should fetch a planet named Satrun" time="0.007" classname="it should fetch a planet named Satrun">
+    <testcase name="Planets API Suite Fetching Planet Details it should fetch a planet named Satrun" time="0.006" classname="it should fetch a planet named Satrun">
       <failure message="expected &apos;Uranus&apos; to deeply equal &apos;Saturn&apos;" type="AssertionError"><![CDATA[AssertionError: expected 'Uranus' to deeply equal 'Saturn'
     at C:\Users\Lateef\OneDrive\Documents\GitHub Actions Certification\solar-system\app-test.js:98:59
     at Request.callback (node_modules\superagent\lib\node\index.js:857:12)
@@ -134,17 +134,17 @@
       ]]></failure>
     </testcase>
   </testsuite>
-  <testsuite name="Testing Other Endpoints" timestamp="2025-04-07T06:09:22" tests="0" file="C:\Users\Lateef\OneDrive\Documents\GitHub Actions Certification\solar-system\app-test.js" time="0.000" failures="0">
+  <testsuite name="Testing Other Endpoints" timestamp="2025-04-07T18:07:05" tests="0" file="C:\Users\Lateef\OneDrive\Documents\GitHub Actions Certification\solar-system\app-test.js" time="0.000" failures="0">
   </testsuite>
-  <testsuite name="it should fetch OS Details" timestamp="2025-04-07T06:09:22" tests="1" file="C:\Users\Lateef\OneDrive\Documents\GitHub Actions Certification\solar-system\app-test.js" time="0.007" failures="0">
-    <testcase name="Testing Other Endpoints it should fetch OS Details it should fetch OS details" time="0.006" classname="it should fetch OS details">
+  <testsuite name="it should fetch OS Details" timestamp="2025-04-07T18:07:05" tests="1" file="C:\Users\Lateef\OneDrive\Documents\GitHub Actions Certification\solar-system\app-test.js" time="0.007" failures="0">
+    <testcase name="Testing Other Endpoints it should fetch OS Details it should fetch OS details" time="0.007" classname="it should fetch OS details">
     </testcase>
   </testsuite>
-  <testsuite name="it should fetch Live Status" timestamp="2025-04-07T06:09:22" tests="1" file="C:\Users\Lateef\OneDrive\Documents\GitHub Actions Certification\solar-system\app-test.js" time="0.003" failures="0">
+  <testsuite name="it should fetch Live Status" timestamp="2025-04-07T18:07:05" tests="1" file="C:\Users\Lateef\OneDrive\Documents\GitHub Actions Certification\solar-system\app-test.js" time="0.003" failures="0">
     <testcase name="Testing Other Endpoints it should fetch Live Status it checks Liveness endpoint" time="0.003" classname="it checks Liveness endpoint">
     </testcase>
   </testsuite>
-  <testsuite name="it should fetch Ready Status" timestamp="2025-04-07T06:09:22" tests="1" file="C:\Users\Lateef\OneDrive\Documents\GitHub Actions Certification\solar-system\app-test.js" time="0.003" failures="0">
+  <testsuite name="it should fetch Ready Status" timestamp="2025-04-07T18:07:05" tests="1" file="C:\Users\Lateef\OneDrive\Documents\GitHub Actions Certification\solar-system\app-test.js" time="0.003" failures="0">
     <testcase name="Testing Other Endpoints it should fetch Ready Status it checks Readiness endpoint" time="0.002" classname="it checks Readiness endpoint">
     </testcase>
   </testsuite>

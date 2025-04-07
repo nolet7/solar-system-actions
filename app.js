@@ -68,6 +68,16 @@ app.post('/planet', async (req, res) => {
   }
 });
 
+// ✅ NEW: GET /planets - Fetch all planets sorted by ID
+app.get('/planets', async (req, res) => {
+  try {
+    const planets = await Planet.find().sort({ id: 1 });
+    res.status(200).json(planets);
+  } catch (error) {
+    res.status(500).json({ error: "Server error retrieving planets." });
+  }
+});
+
 // GET / - Serve the homepage
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));

@@ -40,8 +40,8 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
 
-      - name: Install Dependencies (including dev)
-        run: npm install --include=dev
+      - name: Install all Dependencies
+        run: npm install
 
       - name: Wait for MongoDB to be healthy
         run: |
