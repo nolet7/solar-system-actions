@@ -52,7 +52,11 @@ jobs:
         run: node seed.js
 
       - name: Run Unit Tests
-        run: npm test
+        run: mocha app-test.js --timeout 10000 --reporter spec --exit
+
+      - name: Output Test Results on Failure
+        if: failure()
+        run: cat test-results.xml || echo "No test results file found."
 
       - name: Archive Test Results
         uses: actions/upload-artifact@main
