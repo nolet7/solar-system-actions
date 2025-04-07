@@ -1,4 +1,4 @@
-name: Adding Matrix
+name: Solar System Workflow - Local Mongo
 
 on:
   workflow_dispatch:
@@ -8,36 +8,41 @@ on:
       - 'feature/*'
 
 env:
-  MONGO_URI: 'mongodb+srv://${{ vars.MONGO_USERNAME }}:${{ secrets.MONGO_PASSWORD }}@supercluster.d83jj.mongodb.net/superData?retryWrites=true&w=majority'
-  NODE_ENV: production
+  MONGO_URI: 'mongodb://localhost:27017/solar-system'
+  NODE_ENV: test
 
 jobs:
   unit-testing:
-    name: Unit Testing on Node ${{ matrix.node-version }}
+    name: Local MongoDB Unit Testing
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [16, 18, 20]
+    services:
+      mongo:
+        image: mongo:5.0
+        ports:
+          - 27017:27017
+        options: >-
+          --health-cmd "mongo --eval 'db.runCommand({ ping: 1 })'"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Setup NodeJS
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 18
 
-      - name: Install Dependencies (including dev)
+      - name: Install Dependencies
         run: npm install --include=dev
 
       - name: Run Unit Tests
         run: npm test
 
       - name: Archive Test Results
-        uses: actions/upload-artifact@main
+        uses: actions/upload-artifact@v3
         with:
-          name: Mocha-Test-Result-Node-${{ matrix.node-version }}
+          name: Mocha-Test-Result
           path: test-results.xml
-
