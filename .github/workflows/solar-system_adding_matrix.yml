@@ -41,7 +41,7 @@ jobs:
           node-version: ${{ matrix.node }}
 
       - name: Install all Dependencies
-        run: npm install
+        run: npm install --include=dev
 
       - name: Wait for MongoDB to be healthy
         run: |
@@ -52,7 +52,7 @@ jobs:
         run: node seed.js
 
       - name: Run Unit Tests
-        run: mocha app-test.js --timeout 10000 --reporter spec --exit
+        run: npx mocha app-test.js --timeout 10000 --reporter spec --exit
 
       - name: Output Test Results on Failure
         if: failure()
