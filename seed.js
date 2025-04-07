@@ -37,7 +37,7 @@ const Planet = mongoose.model('planets', dataSchema);
 
 async function seedData() {
   try {
-    await Planet.deleteMany({}); // Clear existing
+    await Planet.deleteMany({});
 
     await Planet.insertMany([
       { id: 0, name: "Mercury", description: "Closest planet to the Sun", image: "", velocity: "47.9 km/s", distance: "57.9 million km" },
@@ -48,8 +48,7 @@ async function seedData() {
       { id: 5, name: "Saturn", description: "Has rings", image: "", velocity: "9.7 km/s", distance: "1.43 billion km" },
       { id: 6, name: "Uranus", description: "Ice giant", image: "", velocity: "6.8 km/s", distance: "2.87 billion km" },
       { id: 7, name: "Neptune", description: "Furthest planet", image: "", velocity: "5.4 km/s", distance: "4.5 billion km" },
-      { id: 8, name: "Pluto", description: "Dwarf planet", image: "", velocity: "4.7 km/s", distance: "5.9 billion km" },
-      { id: 9, name: "Sun", description: "Our star", image: "", velocity: "0", distance: "0" }
+      { id: 8, name: "Pluto", description: "Dwarf planet", image: "", velocity: "4.7 km/s", distance: "5.9 billion km" }
     ]);
 
     console.log("🌍 Planet data seeded successfully!");
