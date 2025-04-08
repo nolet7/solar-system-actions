@@ -1,4 +1,4 @@
-name: Solar System Workflow - Unit_test_code_coverage_invalidate_cache
+name: Solar System Workflow - Unit Test & Coverage
 
 on:
   workflow_dispatch:
@@ -45,7 +45,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: node_modules
-          key: ${{ runner.os }}-node-modules-${{ hashFiles('package-lock.json') }}
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('package-lock.json', 'package.json', 'app.js', 'app-test.js', 'seed.js') }}
           restore-keys: |
             ${{ runner.os }}-node-modules-
 
@@ -99,7 +99,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: node_modules
-          key: ${{ runner.os }}-node-modules-${{ hashFiles('package-lock.json') }}
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('package-lock.json', 'package.json', 'app.js', 'app-test.js', 'seed.js') }}
           restore-keys: |
             ${{ runner.os }}-node-modules-
 
@@ -121,3 +121,4 @@ jobs:
           name: Code-Coverage-Result
           path: coverage
           retention-days: 5
+
