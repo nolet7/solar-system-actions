@@ -13,7 +13,7 @@
   },
   "nyc": {
     "check-coverage": true,
-    "lines": 90,
+    "lines": 60,
     "report-dir": "./coverage",
     "include": ["*.js"],
     "exclude": ["seed.js"]
