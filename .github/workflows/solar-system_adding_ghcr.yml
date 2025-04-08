@@ -1,4 +1,4 @@
-name: Solar System Workflow - Unit Test & Coverage-build-test
+name: Solar System Workflow - Unit Test & Coverage-psuh-ghcr
 
 on:
   workflow_dispatch:
