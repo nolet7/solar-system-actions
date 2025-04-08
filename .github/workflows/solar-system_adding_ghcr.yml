@@ -1,4 +1,4 @@
-name: Solar System Workflow - Unit Test & Coverage-psuh-ghcr
+name: Solar System Workflow - adding github packages
 
 on:
   workflow_dispatch:
@@ -128,6 +128,8 @@ jobs:
     name: Containerization
     needs: [unit-testing, code-coverage]
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
