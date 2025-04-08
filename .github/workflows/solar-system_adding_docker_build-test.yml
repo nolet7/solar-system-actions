@@ -1,4 +1,4 @@
-name: Solar System Workflow - Unit Test & Coverage
+name: Solar System Workflow - Unit Test & Coverage-docker-buil-test
 
 on:
   workflow_dispatch:
@@ -160,4 +160,3 @@ jobs:
 
           echo Testing Image URL using wget
           wget -q -O - 127.0.0.1:3000/live | grep live
-
