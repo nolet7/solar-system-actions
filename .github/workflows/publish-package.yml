@@ -2,7 +2,7 @@ name: Solar System Workflow - Unit Test & Coverage-build-test
 
 on:
   release:
-    types: [published]
+    types: [created]
 
 env:
   MONGO_URI: 'mongodb://127.0.0.1:27017/solar-system'
